@@ -9,8 +9,8 @@ export default (state = {}, action) => {
     case 'EDIT_STREAM':
       return { ...state, [action.payload.id]: action.payload };
     case 'DELETE_STREAM':
-      // return _.omit(state, action.payload);
-      return { ...state, id: undefined };
+      return _.omit(state, action.payload);
+      // return { ...state, id: undefined };
     case 'FETCH_STREAMS':
       return { ...state, ..._.mapKeys(action.payload, 'id') };
     default:

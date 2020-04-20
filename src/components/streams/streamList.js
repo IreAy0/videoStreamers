@@ -5,7 +5,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
-// import streams from '../../api/streams';
 
 class streamList extends React.Component {
   componentDidMount() {
@@ -22,9 +21,9 @@ class streamList extends React.Component {
           <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
             Edit
           </Link>
-          <button className="ui button negative">
+          <Link to={`/streams/delete/${stream.id}`} className="ui button negative">
             Delete
-          </button>
+          </Link>
         </div>
       );
     }
@@ -49,7 +48,9 @@ class streamList extends React.Component {
       {this.renderAdmin(stream)}
       <i className="larger middle aligned icon camera" />
       <div className="content">
-        {stream.title}
+        <Link to={`/streams/${stream.id}`} className="header">
+          {stream.title}
+        </Link>
         <div className="description">{stream.description}</div>
       </div>
 
